@@ -8,7 +8,7 @@ ADD bbb-install/bbb-install.sh /root/bbb-install.sh
 RUN chmod +x /root/bbb-install.sh
 ENV HOSTIP test.bigbluemeeting.com
 ENV MAIL contact@bigbluemeeting.com
-RUN /root/bbb-install.sh -s ${hostip} -e ${mail} -g
+# RUN /root/bbb-install.sh -s ${hostip} -e ${mail} -g
 EXPOSE 80 443
 EXPOSE 16384-32768/udp
 
