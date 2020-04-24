@@ -3,7 +3,7 @@ MAINTAINER sami.khan@bigbluemeeting.com
 
 ENV DEBIAN_FRONTEND noninteractive
 # RUN echo 'Acquire::http::Proxy "http://192.168.2.69:3142";'  > /etc/apt/apt.conf.d/01proxy
-RUN apt-get update && apt-get dselect-upgrade -y
+RUN apt-get update && apt-get dselect-upgrade -y && apt-get install apache2 -y
 ADD bbb-install.sh /root/bbb-install.sh
 RUN chmod +x /root/bbb-install.sh
 ENV HOSTIP test.bigbluemeeting.com
