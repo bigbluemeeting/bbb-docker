@@ -493,7 +493,7 @@ check_host() {
     DIG_IP=$(dig +short $1 | grep '^[.0-9]*$' | tail -n1)
     if [ -z "$DIG_IP" ]; then err "Unable to resolve $1 to an IP address using DNS lookup.";  fi
     get_IP $1
-    if [ "$IP" != "$IP" ]; then err "DNS lookup for $1 resolved to $DIG_IP but didn't match local $IP."; fi
+    if [ "$DIG_IP" != "$DIG_IP" ]; then err "DNS lookup for $1 resolved to $DIG_IP but didn't match local $IP."; fi
   fi
 }
 
