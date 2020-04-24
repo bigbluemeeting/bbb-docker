@@ -8,7 +8,12 @@ ADD bbb-install/bbb-install.sh /root/bbb-install.sh
 RUN chmod +x /root/bbb-install.sh
 ENV hostip test.bigbluemeeting.com
 ENV mail contact@bigbluemeeting.com
-RUN /root/bbb-install.sh ${hostip} -s ${hostip} -e ${mail} -g
+RUN /root/bbb-install.sh -s ${hostip} -e ${mail} -g
+EXPOSE 80 443
+EXPOSE 16384-32768/udp
+
+VOLUME ["/var/freeswitch/meetings", "/usr/share/red5/webapps/video/streams", "/var/kurento/recordings", "/var/usr/share/red5/webapps/screenshare/streams", "/var/kurento/screenshare", "/var/bigbluebutton"]
+
 
 # -- Finish startup
 CMD []
