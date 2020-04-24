@@ -408,8 +408,6 @@ get_IP() {
     local external_ip=$(dig +short $1 @resolver1.opendns.com | grep '^[.0-9]*$' | tail -n1)
   fi
 
-  local external_ip=$IP
-
   # Check if the external IP reaches the internal IP
   if [ ! -z "$external_ip" ] && [ "$IP" != "$external_ip" ]; then
     if which nginx; then
