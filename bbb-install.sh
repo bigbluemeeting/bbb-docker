@@ -305,8 +305,8 @@ HERE
 
   while [ ! -f $SERVLET_DIR/WEB-INF/classes/bigbluebutton.properties ]; do sleep 1; echo -n '.'; done
 
-  check_lxc
-  check_nat
+  #check_lxc
+  #check_nat
   check_LimitNOFILE
 
   configure_HTML5
@@ -320,11 +320,11 @@ HERE
     ln -s "$LINK_PATH" "/var/bigbluebutton"
   fi
 
-  if [ ! -z "$PROVIDED_CERTIFICATE" ] ; then
-    install_ssl
-  elif [ ! -z "$HOST" ] && [ ! -z "$EMAIL" ] ; then
-    install_ssl
-  fi
+#  if [ ! -z "$PROVIDED_CERTIFICATE" ] ; then
+#    install_ssl
+#  elif [ ! -z "$HOST" ] && [ ! -z "$EMAIL" ] ; then
+#    install_ssl
+#  fi
 
   if [ ! -z "$GREENLIGHT" ]; then
     install_greenlight
@@ -336,22 +336,22 @@ HERE
 
   apt-get auto-remove -y
 
-  if systemctl status freeswitch.service | grep -q SETSCHEDULER; then
-    sed -i "s/^CPUSchedulingPolicy=rr/#CPUSchedulingPolicy=rr/g" /lib/systemd/system/freeswitch.service
-    systemctl daemon-reload
-  fi
+  #if systemctl status freeswitch.service | grep -q SETSCHEDULER; then
+  #  sed -i "s/^CPUSchedulingPolicy=rr/#CPUSchedulingPolicy=rr/g" /lib/systemd/system/freeswitch.service
+    #systemctl daemon-reload
+  #fi
 
-  if [ ! -z "$HOST" ]; then
-    bbb-conf --setip $HOST
-  else
-    bbb-conf --setip $IP
-  fi
+  #if [ ! -z "$HOST" ]; then
+  #  bbb-conf --setip $HOST
+  #else
+  #  bbb-conf --setip $IP
+  #fi
 
-  if ! systemctl show-environment | grep LANG= | grep -q UTF-8; then
-    sudo systemctl set-environment LANG=C.UTF-8
-  fi
+  #if ! systemctl show-environment | grep LANG= | grep -q UTF-8; then
+  #  sudo systemctl set-environment LANG=C.UTF-8
+  #fi
 
-  bbb-conf --check
+  #bbb-conf --check
 }
 
 say() {

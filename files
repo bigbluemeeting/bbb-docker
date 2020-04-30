@@ -1,0 +1,13 @@
+#!/bin/bash
+sed -ri 's/(\b[0-9]{1,3}\.){3}[0-9]{1,3}\b'/"127.0.0.1"//opt/freeswitch/etc/freeswitch/autoload_configs/event_socket.conf.xml
+sed -ri 's/(\b[0-9]{1,3}\.){3}[0-9]{1,3}\b'/"176.9.2.153"/ /usr/share/red5/webapps/bigbluebutton/WEB-INF/bigbluebutton.properties
+sed -ri 's/(\b[0-9]{1,3}\.){3}[0-9]{1,3}\b'/"176.9.2.153"/ /etc/bigbluebutton/nginx/sip.nginx
+sed -ri 's/(\b[0-9]{1,3}\.){3}[0-9]{1,3}\b'/"176.9.2.153"/ /usr/local/bigbluebutton/bbb-webrtc-sfu/config/default.yml
+sed -ri 's/(\b[0-9]{1,3}\.){3}[0-9]{1,3}\b'/"176.9.2.153"/ /usr/share/red5/webapps/sip/WEB-INF/bigbluebutton-sip.properties
+sed -ri 's/(\b[0-9]{1,3}\.){3}[0-9]{1,3}\b'/"176.9.2.153"/ /opt/freeswitch/etc/freeswitch/vars.xml
+sed -ri 's/(\b[0-9]{1,3}\.){3}[0-9]{1,3}\b'/"176.9.2.153"/ /var/www/bigbluebutton/client/conf/config.xml
+sed -ri 's/(\b[0-9]{1,3}\.){3}[0-9]{1,3}\b'/"176.9.2.153"/ /etc/nginx/sites-available/bigbluebutton
+sed -ri 's/(\b[0-9]{1,3}\.){3}[0-9]{1,3}\b'/"176.9.2.153"/ /var/www/bigbluebutton/client/conf/config.xml
+sed -ri 's/(\b[0-9]{1,3}\.){3}[0-9]{1,3}\b'/"176.9.2.153"/ /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
+sed -ri 's/(\b[0-9]{1,3}\.){3}[0-9]{1,3}\b'/"176.9.2.153"/ /usr/share/bbb-apps-akka/conf/application.conf
+# sed -ri 's/(\b[0-9]{1,3}\.){3}[0-9]{1,3}\b'/"176.9.2.153"/ /usr/local/bigbluebutton/core/scripts/bigbluebutton.yml
